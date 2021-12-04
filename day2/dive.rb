@@ -5,6 +5,7 @@ class Dive
     @values = File.readlines(input).map(&:to_s)
     @horizontal = 0
     @depth = 0
+    @aim = 0
   end
 
   def diver()
@@ -24,10 +25,11 @@ class Dive
     case direction
     when 'forward'
         @horizontal += distance
+        @depth += (@aim * distance)
     when 'down'
-        @depth += distance
+        @aim += distance
     when 'up'
-        @depth -= distance
+        @aim -= distance
     end
   end
 end
