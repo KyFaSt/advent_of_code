@@ -5,15 +5,12 @@ class Diagnostic
     @values = File.readlines(input)
     @gamma = ""
     @epsilon = ""
-    @counter = 0
   end
 
   def gamma_counter
-    puts @values[0].chomp.length
     @values[0].chomp.length.times do |i|
       binary_abacus = {0 => 0, 1 =>0}
       @values.each do |value|
-        @counter += 1
         if value[i] == "0"
           binary_abacus[0] += 1
         else
