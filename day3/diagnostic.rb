@@ -3,8 +3,10 @@ require 'pry'
 class Diagnostic
   def initialize(input)
     @values = File.readlines(input)
-    @gamma = ""
+    @oxygen_generator = gamma_counter()
     @epsilon = ""
+
+    puts "oxygen generator: " + @oxygen_generator.to_s
   end
 
   def gamma_counter
@@ -23,7 +25,8 @@ class Diagnostic
       @values = binary_abacus[max][:items]
     end
 
-    puts "oxygen generator: " + @values[0].to_i(2).to_s
+    @values[0].to_i(2)
+
   end
 
   def comparator(a, b)
@@ -33,8 +36,6 @@ class Diagnostic
       a[1][:count] <=> b[1][:count]
     end
   end
-
-
 end
 
 
